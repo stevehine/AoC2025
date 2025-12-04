@@ -3,6 +3,7 @@ import * as fs from "node:fs";
 import { SecretEntrance } from "./library/secretEntrance";
 import { GiftShop } from "./library/giftShop";
 import { Lobby } from "./library/lobby";
+import { PrintDept } from "./library/printDept";
 
 const input: string[] = [];
 
@@ -35,6 +36,13 @@ readline
           const lobby = new Lobby(input);
           console.log(`Total Output Joltage for 2 batteries: ${lobby.getTotalJoltage(2)}`);
           console.log(`Total Output Joltage for 12 batteries: ${lobby.getTotalJoltage(12)}`);
+        }
+        break;
+      case "day4":
+        {
+          const printDept = new PrintDept(input);
+          console.log(`Reachable rolls is: ${printDept.ReachableRolls}`);
+          console.log(`Total Removable rolls is: ${printDept.TotalRemovableRolls}`);
         }
         break;
       default:
