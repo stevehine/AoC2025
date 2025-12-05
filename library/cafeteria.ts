@@ -24,25 +24,13 @@ export class Cafeteria {
         const newRanges: { start: number, end: number }[] = [];
 
         for (const range of this._ranges.toSorted((a, b) => a.start - b.start)) {
-            const rangeStart = newRanges.find(it => it.start <= range.start && it.end >= range.start);
-            const rangeEnd = newRanges.find(it => it.start <= range.end && it.end >= range.end);
-            if (rangeStart && rangeEnd) {
-                if (rangeEnd.start != rangeStart.start) {
-                    rangeStart.end = rangeEnd.start - 1;
-                }
-                continue;
+            const previous = newRanges.at(-1);
+
+            if (previous && range.start <= previous.end) {
+                previous.end = Math.max(range.end, previous.end);
+            } else {
+                newRanges.push(range);
             }
-            if (rangeStart) {
-                if (rangeStart.end < range.end)
-                    rangeStart.end = range.end;
-                continue;
-            }
-            if (rangeEnd) {
-                if (rangeEnd.start > range.start)
-                    rangeEnd.start = range.start
-                continue;
-            }
-            newRanges.push(range);
         }
 
         return newRanges.map(range => (range.end - range.start) + 1).reduce((p, v) => p + v, 0);
