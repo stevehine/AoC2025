@@ -4,6 +4,7 @@ import { SecretEntrance } from "./library/secretEntrance";
 import { GiftShop } from "./library/giftShop";
 import { Lobby } from "./library/lobby";
 import { PrintDept } from "./library/printDept";
+import { Cafeteria } from "./library/cafeteria";
 
 const input: string[] = [];
 
@@ -44,6 +45,12 @@ readline
           console.log(`Reachable rolls is: ${printDept.ReachableRolls}`);
           console.log(`Total Removable rolls is: ${printDept.TotalRemovableRolls}`);
         }
+        break;
+      case "day5": {
+        const cafeteria = new Cafeteria(input);
+        console.log(`Fresh Ingredient Count: ${cafeteria.FreshIngredientCount}`);
+        console.log(`Possible Fresh Ingredient Count: ${cafeteria.PossibleFreshIngredientCount}`);
+      }
         break;
       default:
         console.log("You need to tell me which day to run");
