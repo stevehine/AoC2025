@@ -5,6 +5,7 @@ import { GiftShop } from "./library/giftShop";
 import { Lobby } from "./library/lobby";
 import { PrintDept } from "./library/printDept";
 import { Cafeteria } from "./library/cafeteria";
+import { TrashCompactor } from "./library/trashCompactor";
 
 const input: string[] = [];
 
@@ -50,6 +51,12 @@ readline
         const cafeteria = new Cafeteria(input);
         console.log(`Fresh Ingredient Count: ${cafeteria.FreshIngredientCount}`);
         console.log(`Possible Fresh Ingredient Count: ${cafeteria.PossibleFreshIngredientCount}`);
+      }
+        break;
+      case "day6": {
+        const trashCompactor = new TrashCompactor(input);
+        console.log(`Result of maths: ${trashCompactor.totalOfSums}`);
+        console.log(`Result of proper maths: ${trashCompactor.totalOfSumsDoneCorrectly}`);
       }
         break;
       default:
