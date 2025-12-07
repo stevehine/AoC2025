@@ -6,6 +6,7 @@ import { Lobby } from "./library/lobby";
 import { PrintDept } from "./library/printDept";
 import { Cafeteria } from "./library/cafeteria";
 import { TrashCompactor } from "./library/trashCompactor";
+import { Laboratory } from "./library/laboratory";
 
 const input: string[] = [];
 
@@ -57,6 +58,12 @@ readline
         const trashCompactor = new TrashCompactor(input);
         console.log(`Result of maths: ${trashCompactor.totalOfSums}`);
         console.log(`Result of proper maths: ${trashCompactor.totalOfSumsDoneCorrectly}`);
+      }
+        break;
+      case "day7": {
+        const laboratory = new Laboratory(input);
+        console.log(`The beam was split: ${laboratory.BeamSplitCount} times`);
+        console.log(`There were: ${laboratory.PossibleTimeLines} possible timelines`);
       }
         break;
       default:
