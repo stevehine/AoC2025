@@ -7,6 +7,7 @@ import { PrintDept } from "./library/printDept";
 import { Cafeteria } from "./library/cafeteria";
 import { TrashCompactor } from "./library/trashCompactor";
 import { Laboratory } from "./library/laboratory";
+import { Playground } from "./library/playground";
 
 const input: string[] = [];
 
@@ -64,6 +65,13 @@ readline
         const laboratory = new Laboratory(input);
         console.log(`The beam was split: ${laboratory.BeamSplitCount} times`);
         console.log(`There were: ${laboratory.PossibleTimeLines} possible timelines`);
+      }
+        break;
+      case "day8": {
+        const playground = new Playground(input);
+        playground.CreateConnections(1000);
+        console.log(`The multiple of the three largest circuits is: ${playground.LargestCircuitsProduct}`);
+        console.log(`And if we continue we need an extension lead: ${playground.CreateConnections(undefined)} long`);
       }
         break;
       default:
