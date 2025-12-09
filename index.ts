@@ -8,6 +8,7 @@ import { Cafeteria } from "./library/cafeteria";
 import { TrashCompactor } from "./library/trashCompactor";
 import { Laboratory } from "./library/laboratory";
 import { Playground } from "./library/playground";
+import { MovieTheater } from "./library/movieTheater";
 
 const input: string[] = [];
 
@@ -74,6 +75,11 @@ readline
         console.log(`And if we continue we need an extension lead: ${playground.CreateConnections(undefined)} long`);
       }
         break;
+      case "day9": {
+        const movieTheater = new MovieTheater(input);
+        console.log(`The maximum area is: ${movieTheater.LargestArea}`);
+        console.log(`The maximum area within the region is: ${movieTheater.LargestAreaInPattern}`);
+      }
       default:
         console.log("You need to tell me which day to run");
     }

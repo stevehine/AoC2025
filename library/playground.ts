@@ -37,20 +37,18 @@ export class Playground {
             })
             if (a === -1 && b === -1) {
                 this._circuits.push([link.first, link.second]);
-            } else {
-                if (a === -1) {
-                    this._circuits[b].push(link.first);
-                } else if (b === -1) {
-                    this._circuits[a].push(link.second);
-                } else if (a !== b) {
-                    this._circuits[a].push(...this._circuits[b]);
-                    this._circuits[b] = [];
+            } else if (a === -1) {
+                this._circuits[b].push(link.first);
+            } else if (b === -1) {
+                this._circuits[a].push(link.second);
+            } else if (a !== b) {
+                this._circuits[a].push(...this._circuits[b]);
+                this._circuits[b] = [];
 
 
-                }
             }
 
-            if (this._circuits.toSorted((a,b) => b.length - a.length)[0].length===this._junctionBoxes.length) {
+            if (this._circuits.toSorted((a, b) => b.length - a.length)[0].length === this._junctionBoxes.length) {
                 return (this._junctionBoxes[link.first].x * this._junctionBoxes[link.second].x);
             }
         }
