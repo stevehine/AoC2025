@@ -12,10 +12,14 @@ export class MovieTheater {
         const outline: { x: number, y: number }[] = [];
 
         tiles.forEach((tile, index) => {
-            for (let x = Math.min(tile.x, lastTile.x); x <= Math.max(tile.x, lastTile.x); x++) {
+            const minX = Math.min(tile.x, lastTile.x);
+            const maxX = Math.max(tile.x, lastTile.x);
+            const minY = Math.min(tile.y, lastTile.y);
+            const maxY = Math.max(tile.y, lastTile.y);
+            for (let x = minX; x <= maxX; x += maxX / 10) {
                 outline.push({ x, y: tile.y });
             }
-            for (let y = Math.min(tile.y, lastTile.y); y <= Math.max(tile.y, lastTile.y); y++) {
+            for (let y = minY; y <= maxY; y += maxY / 10) {
                 outline.push({ x: tile.x, y });
             }
             lastTile = tile;
